@@ -1,4 +1,4 @@
-mongoos = require('mongoose')
+mongoose = require('mongoose')
 studentSchema =new mongoose.Schema({
     name: String,
     enrolledStatus: Boolean,
