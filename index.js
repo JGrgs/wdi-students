@@ -25,6 +25,10 @@ app.get("/api/students", (req, res) => {
     })
 })
 
+app.get("api/students/:id", (req, res) => {
+    
+})
+
 app.listen(PORT, (err) => {
     console.log(err || `Listening on server ${PORT}`)
 })
