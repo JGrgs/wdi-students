@@ -25,7 +25,31 @@ app.get("/api/students", (req, res) => {
     })
 })
 
-app.get("api/students/:id", (req, res) => {
+app.get("api/students/:id", (req, res) =>{
+    Student.findById(req.params.id, (err, thatStudent) => {
+        if(err) return console.log(err)
+        res.json(thatStudent)
+    })
+})
+
+app.post("api/students", (req, res) => {
+    Student.create(req.body, (err, newStudent) =>{
+        if(err) return console.log(err)
+        res.json(newStudent)
+    })
+})
+
+app.patch("api/students/:id", (req, res) => {
+    Student.findByIdAndUpdate(req.params.id, req.body, (err, thatStudent) => {
+        if(err) return console.log(err)
+        res.json(thatStudent)
+    })
+})
+
+app.delete("api/students/:id", (req, res) => {
+    Student.findByIdAndRemove(req.params.id, (err))
+    if(err) return console.log(err)
+    res.json({message:"Student deleted"})
     
 })
 
